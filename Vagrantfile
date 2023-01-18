@@ -68,6 +68,11 @@ Vagrant.configure("2") do |config|
 
       box.vm.provision "shell", path: "bootstrap.sh"
       box.vm.provision "shell", path: "make_raid.sh", args: "5"
+      box.vm.provision "shell", path: "configure_raid.sh"
+      box.vm.provision "shell", path: "break_raid.sh"
+      box.vm.provision "shell", path: "fix_raid.sh"
+      box.vm.provision "shell", path: "create_gpt.sh"
+
     end
   end
 end

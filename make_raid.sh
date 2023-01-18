@@ -45,15 +45,16 @@ mdadm --create --verbose /dev/md0 -l $raid_num -n $disks_count $disks_list
 echo ""
 
 if [[ "$?" == 0 ]]; then
-    sleep 2
+    sleep 5
 
     echo -e "####### RAID $raid_num created #######\n    Checking:\n\n"
 
     cat /proc/mdstat
-    echo -ne "\n\n"
+    echo ""
+    echo ""
 
     mdadm -D /dev/md0
-    echo -ne "\n\n"
+    echo ""
 
 else
     echo "Что-то пошло не так. ERRCODE $?"
